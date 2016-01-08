@@ -5,8 +5,15 @@
     .controller('ContentHomeCtrl', ['Utils', function (Utils) {
       var ContentHome = this;
       ContentHome.validateUrl = function () {
-        var result = Utils.validateUrl(ContentHome.content.url);
-        console.log("?????????????????", result);
-      };
+      //  var result =
+        var success = function(result){
+          var result = result
+              console.log("?????????",result)
+            },
+            error = function(err){
+              console.log("?????????error",err)
+            }
+           Utils.validateUrl(ContentHome.content.url).then(success, error);
+       };
     }]);
 })(window.angular);
