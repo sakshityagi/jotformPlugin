@@ -63,13 +63,15 @@
         }
       }
     }])
-    .factory("Utils", ["$http", function ($http) {
+    .factory("Utils", ["$http",'PROXY_SERVER', function ($http,PROXY_SERVER) {
       return {
         validateUrl: function (url) {
           var regex = /https?:\/\/([a-z0-9\.]+)\.jotform\.(com|me)\/?(.*)/i;
           var result = regex.test(url);
           if (result) {
-            $http.get(url)
+            $http.post(PROXY_SERVER.serverUrl + '/validateJotFormUrl', {
+              url: url
+            })
               .success(function (response) {
                 console.log("**************", response);
                 if (response)
