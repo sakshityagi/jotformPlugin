@@ -22,4 +22,7 @@
             NOT_ITEM_ARRAY: 'Array of Items not provided',
             ITEM_ARRAY_FOUND: 'Array of Items provided'
         })
+      .constant('PROXY_SERVER', {
+        serverUrl: "http://proxy.buildfire.com"
+      });
 })(window.angular);
