@@ -1,6 +1,6 @@
 'use strict';
 
-(function (angular) {
+(function (angular,window) {
   angular.module('jotFormPluginContent', ['ui.bootstrap'])
     .controller('ContentHomeCtrl', ['Utils', 'DataStore', 'TAG_NAMES', 'STATUS_CODE', '$timeout', function (Utils, DataStore, TAG_NAMES, STATUS_CODE, $timeout) {
       var ContentHome = this;
@@ -78,5 +78,10 @@
           ContentHome.saveData(ContentHome.data.content, TAG_NAMES.JOT_FORM_DATA)
         }
       };
+
+      ContentHome.gotToPage = function(){
+        window.open('http://www.jotform.com/', '_blank');
+      };
+
     }]);
-})(window.angular);
+})(window.angular, window);
