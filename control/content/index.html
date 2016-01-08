@@ -45,10 +45,10 @@
   <hr class="none">
   <div class="item clearfix row">
     <div class="main pull-right col-md-9">
-      <div class="alert alert-success alert-sm text-center">Url
+      <div class="alert alert-success alert-sm text-center" ng-if="ContentHome.isUrlValidated==true">Url
         successfully validated
       </div>
-      <div class="alert alert-danger alert-sm text-center">Invalid Url
+      <div class="alert alert-danger alert-sm text-center" ng-if="ContentHome.isUrlValidated==false">Invalid Url
       </div>
     </div>
   </div>

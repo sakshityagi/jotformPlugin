@@ -2,11 +2,12 @@
 
 (function (angular) {
   angular.module('jotFormPluginContent', ['ui.bootstrap'])
-    .controller('ContentHomeCtrl', ['Utils', 'DataStore', 'TAG_NAMES', 'STATUS_CODE', function (Utils, DataStore, TAG_NAMES, STATUS_CODE) {
+    .controller('ContentHomeCtrl', ['Utils', 'DataStore', 'TAG_NAMES', 'STATUS_CODE', '$timeout', function (Utils, DataStore, TAG_NAMES, STATUS_CODE, $timeout) {
       var ContentHome = this;
           ContentHome.content={
-                  url:""
+                  url:null
               };
+          ContentHome.isUrlValidated = null;
           ContentHome.JotUrl = null;
           /*Init method call, it will bring all the pre saved data*/
           var init = function () {
@@ -37,13 +38,18 @@
           var result = result
               console.log("?????????",result)
                 if(result) {
+                    ContentHome.isUrlValidated = true;
                     ContentHome.content.url = ContentHome.JotUrl;
                     ContentHome.saveData(JSON.parse(angular.toJson(ContentHome.content)), TAG_NAMES.JOT_FORM_DATA);
                 }
             },
             error = function(err){
+                ContentHome.isUrlValidated = false;
               console.log("?????????error",err)
             }
+          $timeout(function () {
+              ContentHome.isUrlValidated = null;
+          }, 3000);
            Utils.validateUrl(ContentHome.JotUrl).then(success, error);
        };
 
