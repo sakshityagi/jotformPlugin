@@ -1,0 +1,21 @@
+{
+  "author": "BuildFire",
+  "pluginName": "JotForm",
+  "pluginDescription": "Plugin to open a jotform content url in your buildfire app.",
+  "supportEmail": "support@buildfire.com",
+  "control": {
+    "content": {
+      "enabled": true
+    },
+    "design": {
+      "enabled": true
+    },
+    "settings": {
+      "enabled": false
+    }
+  },
+  "widget": {
+  },
+  "features": [],
+  "languages": ["en"]
+}
