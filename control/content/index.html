@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html ng-app="jotFormPluginContent">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>Content</title>
+  <!-- CSS -->
+  <link href="../../../../styles/helper.css" rel="stylesheet">
+  <link href="../../../../styles/siteIcons.css" rel="stylesheet">
+
+  <!-- JS -->
+  <script src="../../../../scripts/buildfire.js"></script>
+  <script src="../../../../scripts/angular/angular.min.js"></script>
+  <script src="../../../../scripts/angular/ui-bootstrap.min.js"></script>
+  <script src="app.js"></script>
+</head>
+<body id="webviewApp" ng-cloak>
+<div ng-controller="ContentHomeCtrl">
+  <div class="item clearfix row margin-bottom-fifteen">
+    <div class="labels col-md-3 padding-right-zero pull-left">
+      <span>URL</span>
+    </div>
+    <div class="main col-md-9 pull-right clearfix">
+      <div class="col-md-9 pull-left padding-left-zero">
+        <input id="url" name="url" type="text" class="form-control"
+               ng-model="data.content.url" required
+               pattern="[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?">
+      </div>
+      <div class="col-md-3 pull-right padding-zero">
+        <button class="btn btn-success stretch" ng-click="validateUrl()">
+          Validate
+        </button>
+      </div>
+    </div>
+  </div>
+  <hr class="none">
+  <div class="item clearfix row">
+    <div class="col-md-9 pull-right">
+      <p>Dont have a JotForm account click <a href="http://www.jotform.com/"
+                                              target="_blank"
+          >here</a> to register</p>
+    </div>
+  </div>
+</div>
+</body>
+</html>
