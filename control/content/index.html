@@ -28,7 +28,8 @@
                ng-change="ContentHome.clearData()">
       </div>
       <div class="col-md-3 pull-right padding-zero">
-        <button class="btn btn-success stretch" ng-click="ContentHome.validateUrl()">
+        <button class="btn btn-success stretch"
+                ng-click="ContentHome.validateUrl()" ng-disabled="!ContentHome.JotUrl">
           Validate
         </button>
       </div>
