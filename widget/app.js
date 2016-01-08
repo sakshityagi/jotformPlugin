@@ -11,10 +11,10 @@
          */
         var init = function () {
           var success = function (result) {
-              console.log(">>>>>", result);
               WidgetHome.data = result.data;
               if (!WidgetHome.data.content)
                 WidgetHome.data.content = {};
+              console.log(">>>>>", WidgetHome.data);
             }
             , error = function (err) {
               if (err && err.code !== STATUS_CODE.NOT_FOUND) {
@@ -38,5 +38,10 @@
 
         init();
 
-      }]);
+      }])
+    .filter('returnUrl', ['$sce', function ($sce) {
+      return function (url) {
+        return $sce.trustAsResourceUrl(url);
+      }
+    }]);
 })(window.angular);

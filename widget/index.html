@@ -15,8 +15,10 @@
   <script src="enums.js"></script>
   <script src="app.services.js"></script>
 </head>
-<body ng-controller="WidgetHomeCtrl as WidgetHome">
-<iframe ng-src="WidgetHome.data.content.url"
-        ng-if="WidgetHome.data.content.url"></iframe>
+<body>
+<div class="content"  ng-controller="WidgetHomeCtrl as WidgetHome">
+  <iframe src="{{WidgetHome.data.content.url | returnUrl}}"
+          ng-if="WidgetHome.data.content.url" style="height: 100%;position: absolute"></iframe>
+</div>
 </body>
 </html>
