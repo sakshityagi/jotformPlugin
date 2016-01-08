@@ -24,7 +24,8 @@
     <div class="main col-md-9 pull-right clearfix">
       <div class="col-md-9 pull-left padding-left-zero">
         <input id="url" name="url" type="text" class="form-control"
-               ng-model="ContentHome.content.url" required>
+               ng-model="ContentHome.JotUrl" required
+               ng-change="ContentHome.clearData()">
       </div>
       <div class="col-md-3 pull-right padding-zero">
         <button class="btn btn-success stretch" ng-click="ContentHome.validateUrl()">
@@ -44,10 +45,10 @@
   <hr class="none">
   <div class="item clearfix row">
     <div class="main pull-right col-md-9">
-      <div class="alert alert-success alert-sm text-center">Url
+      <div class="alert alert-success alert-sm text-center" ng-if="ContentHome.isUrlValidated==true">Url
         successfully validated
       </div>
-      <div class="alert alert-danger alert-sm text-center">Invalid Url
+      <div class="alert alert-danger alert-sm text-center" ng-if="ContentHome.isUrlValidated==false">Invalid Url
       </div>
     </div>
   </div>
