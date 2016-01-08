@@ -24,7 +24,8 @@
     <div class="main col-md-9 pull-right clearfix">
       <div class="col-md-9 pull-left padding-left-zero">
         <input id="url" name="url" type="text" class="form-control"
-               ng-model="ContentHome.content.url" required>
+               ng-model="ContentHome.JotUrl" required
+               ng-change="ContentHome.clearData()">
       </div>
       <div class="col-md-3 pull-right padding-zero">
         <button class="btn btn-success stretch" ng-click="ContentHome.validateUrl()">

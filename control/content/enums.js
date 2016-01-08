@@ -3,7 +3,7 @@
 (function (angular) {
     angular.module('jotFormPluginContent')
         .constant('TAG_NAMES', {
-            JOT_FORMS_DATA: 'jotFormsData'
+            JOT_FORM_DATA: 'jotFormData'
         })
         .constant('STATUS_CODE', {
             INSERTED: 'inserted',
