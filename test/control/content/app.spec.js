@@ -1,5 +1,5 @@
 describe('Unit: jotFormPluginContent content app', function () {
-  describe('Unit: app routes', function () {
+  describe('Unit: app', function () {
     beforeEach(module('jotFormPluginContent'));
     var location, route, rootScope;
     beforeEach(inject(function () {
@@ -37,8 +37,8 @@ describe('Unit: jotFormPluginContent content app', function () {
 
         }
       };
+        ActionItems = jasmine.createSpyObj('ActionItems', ['showDialog'])
 
-      ActionItems = jasmine.createSpyObj('ActionItems', ['showDialog']);
     }));
 
     beforeEach(function () {
@@ -55,6 +55,7 @@ describe('Unit: jotFormPluginContent content app', function () {
       });
     });
     describe('It will test the defined methods', function () {
+
       it('it should pass if ContentHome is defined', function () {
         expect(ContentHome).not.toBeUndefined();
       });
@@ -62,32 +63,36 @@ describe('Unit: jotFormPluginContent content app', function () {
         ContentHome.clearData();
       });
 
-      it('it should pass if ContentHome.validateUrl is called', function () {
-        ContentHome.data = {
-          content:{
-            url:"hhhh"
-          }
-        }
+      it('it should pass if ContentHome.validateUrl is called with success', function () {
+
         ContentHome.validateUrl();
         var result  = true;
         ContentHome.success(result);
       });
 
-      it('it should pass if ContentHome.init is called', function () {
+      it('it should pass if ContentHome.validateUrl is called with error', function () {
 
-        ContentHome.init();
-        var result  = true;
-
-       // ContentHome.success(result)
-        ContentHome.error(null)
+        ContentHome.validateUrl();
+        ContentHome.error(null);
       });
 
       it('it should pass if ContentHome.init is called', function () {
 
         ContentHome.init();
         var result  = true;
+        ContentHome.error(null);
+      });
 
-        // ContentHome.success(result)
+      it('it should pass if ContentHome.init is called', function () {
+        ContentHome.dummydata = {
+          content:{
+            url:null
+          }
+        };
+        ContentHome.init();
+        var data = {};
+        ContentHome.success();
+        expect(ContentHome.data).toEqual(ContentHome.dummydata)
       });
     });
 
