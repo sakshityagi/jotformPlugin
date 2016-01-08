@@ -63,13 +63,33 @@ describe('Unit: jotFormPluginContent content app', function () {
       });
 
       it('it should pass if ContentHome.validateUrl is called', function () {
+        ContentHome.data = {
+          content:{
+            url:"hhhh"
+          }
+        }
         ContentHome.validateUrl();
+        var result  = true;
+        ContentHome.success(result);
       });
 
+      it('it should pass if ContentHome.init is called', function () {
 
+        ContentHome.init();
+        var result  = true;
+
+       // ContentHome.success(result)
+        ContentHome.error(null)
+      });
+
+      it('it should pass if ContentHome.init is called', function () {
+
+        ContentHome.init();
+        var result  = true;
+
+        // ContentHome.success(result)
+      });
     });
-    it("aaaaaa", function(){
 
-    })
   });
 });
