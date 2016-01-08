@@ -12,8 +12,11 @@
   <script src="../../../scripts/angular/angular.min.js"></script>
   <script src="../../../scripts/angular/ui-bootstrap.min.js"></script>
   <script src="app.js"></script>
+  <script src="enums.js"></script>
+  <script src="app.services.js"></script>
 </head>
-<body id="webviewApp">
-<!--<iframe ng-src="https://form.jotform.com/60068237709257"></iframe>-->
+<body ng-controller="WidgetHomeCtrl as WidgetHome">
+<iframe ng-src="WidgetHome.data.content.url"
+        ng-if="WidgetHome.data.content.url"></iframe>
 </body>
 </html>

@@ -10,6 +10,7 @@
       return Buildfire;
     }])
     .factory("DataStore", ['Buildfire', '$q', 'STATUS_CODE', 'STATUS_MESSAGES', function (Buildfire, $q, STATUS_CODE, STATUS_MESSAGES) {
+      var onUpdateListeners = [];
       return {
         get: function (_tagName) {
           var deferred = $q.defer();
