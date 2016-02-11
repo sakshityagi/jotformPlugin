@@ -1,7 +1,7 @@
 {
   "author": "BuildFire",
   "pluginName": "JotForm",
-  "pluginDescription": "Plugin to open a jotform content url in your buildfire app.",
+  "pluginDescription": "JotForm Plugin allows you to link to external forms, web pages and documents simply by entering the page's URL.",
   "supportEmail": "support@buildfire.com",
   "control": {
     "content": {
