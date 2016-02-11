@@ -11,29 +11,29 @@
          */
         WidgetHome.init = function () {
           WidgetHome.success = function (result) {
-              WidgetHome.data = result.data;
-              if (!WidgetHome.data.content)
-                WidgetHome.data.content = {};
-              console.log(">>>>>", WidgetHome.data);
-            }
+            WidgetHome.data = result.data;
+            if (!WidgetHome.data.content)
+              WidgetHome.data.content = {};
+            console.log(">>>>>", WidgetHome.data);
+          };
           WidgetHome.error = function (err) {
-              if (err && err.code !== STATUS_CODE.NOT_FOUND) {
-                console.error('Error while getting data', err);
-              }
-            };
+            if (err && err.code !== STATUS_CODE.NOT_FOUND) {
+              console.error('Error while getting data', err);
+            }
+          };
           DataStore.get(TAG_NAMES.JOT_FORM_DATA).then(WidgetHome.success, WidgetHome.error);
         };
 
         WidgetHome.onUpdateCallback = function (event) {
           if (event && event.tag === TAG_NAMES.JOT_FORM_DATA) {
             WidgetHome.data = event.data;
-            if (WidgetHome.data&&!WidgetHome.data.design)
+            if (WidgetHome.data && !WidgetHome.data.design)
               WidgetHome.data.design = {};
-            if (WidgetHome.data&&!WidgetHome.data.content)
+            if (WidgetHome.data && !WidgetHome.data.content)
               WidgetHome.data.content = {};
           }
         };
-        
+
         DataStore.onUpdate().then(null, null, WidgetHome.onUpdateCallback);
 
         WidgetHome.init();
