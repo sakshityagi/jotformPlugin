@@ -11,10 +11,17 @@
          */
         WidgetHome.init = function () {
           WidgetHome.success = function (result) {
-            WidgetHome.data = result.data;
-            if (!WidgetHome.data.content)
-              WidgetHome.data.content = {};
-            console.log(">>>>>", WidgetHome.data);
+            if (result.data && result.id) {
+              WidgetHome.data = result.data;
+              if (!WidgetHome.data.content)
+                WidgetHome.data.content = {};
+            } else {
+              WidgetHome.data = {
+                content: {}
+              };
+              var dummyData = {url: "https://form.jotform.me/60070086181448"};
+              WidgetHome.data.content.url = dummyData.url;
+            }
           };
           WidgetHome.error = function (err) {
             if (err && err.code !== STATUS_CODE.NOT_FOUND) {

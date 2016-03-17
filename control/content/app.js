@@ -15,19 +15,20 @@
       ContentHome.init = function () {
         ContentHome.success = function (result) {
           console.info('init success result:', result);
-          if (result) {
+          if (result.data && result.id) {
             ContentHome.data = result.data;
             if (!ContentHome.data.content)
               ContentHome.data.content = {};
             ContentHome.JotUrl = ContentHome.data.content.url;
           }
+          else {
+            var dummyData = {url: "https://form.jotform.me/60070086181448"};
+            ContentHome.JotUrl = ContentHome.data.content.url = dummyData.url;
+          }
         };
         ContentHome.error = function (err) {
           if (err && err.code !== STATUS_CODE.NOT_FOUND) {
             console.error('Error while getting data', err);
-          }
-          else if (err && err.code === STATUS_CODE.NOT_FOUND) {
-            ContentHome.saveData(JSON.parse(angular.toJson(ContentHome.data)), TAG_NAMES.JOT_FORM_DATA);
           }
         };
         DataStore.get(TAG_NAMES.JOT_FORM_DATA).then(ContentHome.success, ContentHome.error);
