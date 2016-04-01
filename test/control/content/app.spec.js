@@ -86,7 +86,7 @@ describe('Unit: jotFormPluginContent content app', function () {
       it('it should pass if ContentHome.init is called', function () {
         ContentHome.dummydata = {
           content:{
-            url:null
+            url:"https://form.jotform.me/60070086181448"
           }
         };
         ContentHome.init();
