@@ -1,6 +1,6 @@
 'use strict';
 
-(function (angular) {
+(function (angular,document) {
   angular.module('jotFormPluginWidget', ['ui.bootstrap'])
     .controller('WidgetHomeCtrl', ['$scope', 'Buildfire', 'DataStore', 'TAG_NAMES', 'STATUS_CODE',
       function ($scope, Buildfire, DataStore, TAG_NAMES, STATUS_CODE) {
@@ -31,6 +31,14 @@
           DataStore.get(TAG_NAMES.JOT_FORM_DATA).then(WidgetHome.success, WidgetHome.error);
         };
 
+        //Refresh web page on pulling the tile bar
+
+        buildfire.datastore.onRefresh(function () {
+          var iFrame = document.getElementById("formFrame");
+          console.log(iFrame);
+          iFrame.src = iFrame.src;
+        });
+
         WidgetHome.onUpdateCallback = function (event) {
           if (event && event.tag === TAG_NAMES.JOT_FORM_DATA) {
             WidgetHome.data = event.data;
@@ -51,4 +59,4 @@
         return $sce.trustAsResourceUrl(url);
       }
     }]);
-})(window.angular);
+})(window.angular, window.document);
